@@ -1,0 +1,331 @@
+<!-- Project: Strong Together Website -->
+<!-- Files included below: index.html, about.html, services.html, contact.html, feedback.html, styles.css -->
+
+<!-- ======================= styles.css ======================= -->
+/* Strong Together - Main Styles */
+:root {
+  --primary: #1e73be; /* blue */
+  --white: #ffffff;
+  --light-blue: #e8f1fb;
+  --text: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--white);
+  border-bottom: 3px solid var(--primary);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.menu a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  background: var(--light-blue);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.section {
+  padding: 40px 20px;
+}
+
+.section h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+footer {
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .menu {
+    margin-top: 10px;
+  }
+
+  .menu a {
+    margin: 0 10px;
+  }
+}
+
+
+<!-- ======================= index.html (Home) ======================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strong Together - Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Strong Together</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Welcome to Strong Together</h1>
+  <p>Empowering communities through unity and support.</p>
+</section>
+
+<section class="section container">
+  <h2>Our Mission</h2>
+  <p>We believe that together we are stronger. Our goal is to provide support, services, and resources that help individuals and communities thrive.</p>
+</section>
+
+<footer>
+  <p>© 2026 Strong Together</p>
+</footer>
+</body>
+</html>
+
+
+<!-- ======================= about.html ======================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Strong Together</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Strong Together</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section container">
+  <h2>About Us</h2>
+  <p>Strong Together is an organization dedicated to building resilient communities through collaboration, outreach, and support programs.</p>
+</section>
+
+<footer>
+  <p>© 2026 Strong Together</p>
+</footer>
+</body>
+</html>
+
+
+<!-- ======================= services.html ======================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Strong Together</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Strong Together</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section container">
+  <h2>Our Services</h2>
+  <ul>
+    <li>Community Support Programs</li>
+    <li>Workshops and Training</li>
+    <li>Counseling and Guidance</li>
+    <li>Volunteer Opportunities</li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2026 Strong Together</p>
+</footer>
+</body>
+</html>
+
+
+<!-- ======================= contact.html ======================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Strong Together</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Strong Together</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section container">
+  <h2>Contact Us</h2>
+  <p>Email: info@strongtogether.org</p>
+  <p>Phone: (000) 000-0000</p>
+</section>
+
+<footer>
+  <p>© 2026 Strong Together</p>
+</footer>
+</body>
+</html>
+
+
+<!-- ======================= feedback.html ======================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - Strong Together</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Strong Together</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section container">
+  <h2>Feedback</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Feedback" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Strong Together</p>
+</footer>
+</body>
+</html>
+
+
