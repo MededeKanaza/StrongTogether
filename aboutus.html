@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Strong Together</title>
+
+<style>
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0fdf4;
+    color: #14532d;
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ===== HEADER / NAVIGATION ===== */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #22c55e;
+    padding: 15px 0;
+    background: transparent;
+}
+
+.brand {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.brand span {
+    color: #22c55e;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: #166534;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+    background: #22c55e;
+    color: white;
+}
+
+.main-nav a.active {
+    background: #22c55e;
+    color: white;
+}
+
+/* ===== CONTENT ===== */
+h1 {
+    margin: 25px 0;
+    color: #0f7a3a;
+}
+
+.content-box {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-left: 6px solid #22c55e;
+}
+
+.content-box h2 {
+    margin: 15px 0 10px 0;
+    color: #064e3b;
+}
+
+.content-box ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.content-box li {
+    margin: 8px 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background: #14532d;
+    color: white;
+    font-weight: bold;
+    border-top: 3px solid #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<header class="site-header">
+    <div class="brand">Strong <span>Together</span></div>
+    <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html" class="active">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="phploops.html" target="_blank">PHP Loops</a></li>
+        <li><a href="randomvalues.php" target="_blank">Random Values</a></li>
+        <li><a href="styled-invoice.html" target="_blank">Invoice</a></li>
+        <li><a href="salary-calculator.html" target="_blank">Salary Calc</a></li>
+    </ul>
+</header>
+
+<h1>About Us</h1>
+
+<div class="content-box">
+    <p>Strong Together is an NGO dedicated to supporting individuals suffering from serious medical conditions who cannot afford treatment. We believe that access to healthcare is a human right.</p>
+
+    <h2>Our Values</h2>
+    <ul>
+        <li>Compassion</li>
+        <li>Solidarity</li>
+        <li>Transparency</li>
+        <li>Dignity</li>
+    </ul>
+</div>
+
+</div>
+
+<footer class="footer">
+    Strong Together - Designed by Medede Kanaza.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up | Strong Together</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f0fdf4;
+    color:#14532d;
+}
+
+.wrapper{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+/* HEADER */
+.site-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    border-bottom:3px solid #22c55e;
+    padding:15px 0;
+}
+
+.brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.brand span{
+    color:#22c55e;
+}
+
+/* NAV */
+.main-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    list-style:none;
+}
+
+.main-nav a{
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:25px;
+    color:#166534;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.main-nav a:hover,
+.main-nav a.active{
+    background:#22c55e;
+    color:white;
+}
+
+/* FORM */
+.signup-container{
+    max-width:500px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#15803d;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#22c55e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#16a34a;
+}
+
+.error-message{
+    color:red;
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+    background:#14532d;
+    color:white;
+    font-weight:bold;
+    border-top:3px solid #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<header class="site-header">
+    <div class="brand">Strong <span>Together</span></div>
+
+    <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+
+        <!-- External Links -->
+        <li><a href="https://mededekanaza.github.io/phploops/" target="_blank">PHP Loops</a></li>
+        <li><a href="http://randomvalues.atwebpages.com" target="_blank">Random Values</a></li>
+        <li><a href="https://mededekanaza.github.io/styled-invoice-page/" target="_blank">Invoice</a></li>
+        <li><a href="http://paysalary.atwebpages.com" target="_blank">Salary Calculator</a></li>
+
+        <li><a class="active" href="signup.html">Sign Up</a></li>
+    </ul>
+</header>
+
+<div class="signup-container">
+    <h2>Create Account</h2>
+
+    <form action="process.php" method="POST" id="signupForm">
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="fullname" name="fullname">
+            <div id="fullname-error" class="error-message"></div>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="email" name="email">
+            <div id="email-error" class="error-message"></div>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" name="password">
+            <div id="password-error" class="error-message"></div>
+        </div>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+
+</div>
+
+<footer class="footer">
+Strong Together - Designed by Medede Kanaza.
+</footer>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e){
+
+    let valid = true;
+
+    let fullname = document.getElementById("fullname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    document.getElementById("fullname-error").innerHTML = "";
+    document.getElementById("email-error").innerHTML = "";
+    document.getElementById("password-error").innerHTML = "";
+
+    if(fullname.length < 2){
+        document.getElementById("fullname-error").innerHTML = "Enter valid name";
+        valid = false;
+    }
+
+    if(!email.includes("@")){
+        document.getElementById("email-error").innerHTML = "Enter valid email";
+        valid = false;
+    }
+
+    if(password.length < 6){
+        document.getElementById("password-error").innerHTML = "Minimum 6 characters";
+        valid = false;
+    }
+
+    if(!valid){
+        e.preventDefault();
+    }
+});
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up | Strong Together</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f0fdf4;
+    color:#14532d;
+}
+
+/* WRAPPER */
+.wrapper{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+/* HEADER */
+.site-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    border-bottom:3px solid #22c55e;
+    padding:15px 0;
+}
+
+.brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.brand span{
+    color:#22c55e;
+}
+
+.main-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.main-nav li{
+    list-style:none;
+}
+
+.main-nav a{
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:25px;
+    color:#166534;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.main-nav a:hover,
+.main-nav a.active{
+    background:#22c55e;
+    color:white;
+}
+
+/* FORM */
+.signup-container{
+    max-width:500px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#15803d;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#22c55e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#16a34a;
+}
+
+.error-message{
+    color:red;
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+    background:#14532d;
+    color:white;
+    font-weight:bold;
+    border-top:3px solid #22c55e;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+<header class="site-header">
+    <div class="brand">Strong <span>Together</span></div>
+
+    <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a class="active" href="#">Sign Up</a></li>
+    </ul>
+</header>
+
+<div class="signup-container">
+    <h2>Create Account</h2>
+
+    <form action="process.php" method="POST" id="signupForm">
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="fullname" name="fullname">
+            <div id="fullname-error" class="error-message"></div>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="email" name="email">
+            <div id="email-error" class="error-message"></div>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" name="password">
+            <div id="password-error" class="error-message"></div>
+        </div>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+
+</div>
+
+<footer class="footer">
+Strong Together - Designed by Medede Kanaza.
+</footer>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e){
+
+    let valid = true;
+
+    let fullname = document.getElementById("fullname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    document.getElementById("fullname-error").innerHTML = "";
+    document.getElementById("email-error").innerHTML = "";
+    document.getElementById("password-error").innerHTML = "";
+
+    if(fullname.length < 2){
+        document.getElementById("fullname-error").innerHTML = "Enter valid name";
+        valid = false;
+    }
+
+    if(!email.includes("@")){
+        document.getElementById("email-error").innerHTML = "Enter valid email";
+        valid = false;
+    }
+
+    if(password.length < 6){
+        document.getElementById("password-error").innerHTML = "Minimum 6 characters";
+        valid = false;
+    }
+
+    if(!valid){
+        e.preventDefault();
+    }
+});
+</script>
+
+</body>
+</html>
