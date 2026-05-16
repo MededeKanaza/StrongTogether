@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Strong Together</title>
+
+<style>
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#dff7e8, #eafff2);
+    color: #14532d;
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ===== HEADER / NAVIGATION ===== */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #22c55e;
+    padding: 15px 0;
+    background: transparent;
+}
+
+.brand {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.brand span {
+    color: #22c55e;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: #166534;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+    background: #22c55e;
+    color: white;
+}
+
+.main-nav a.active {
+    background: #22c55e;
+    color: white;
+}
+
+/* ===== CONTENT ===== */
+.contact-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: #15803d;
+    margin-bottom: 25px;
+}
+
+.contact-card {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 40px;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.info-box {
+    background: #ecfdf5;
+    border-left: 6px solid #22c55e;
+    padding: 18px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background: #14532d;
+    color: white;
+    font-weight: bold;
+    border-top: 3px solid #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<header class="site-header">
+    <div class="brand">Strong <span>Together</span></div>
+    <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="paycheck.html">Salary Calculator</a></li>
+		<li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+    </ul>
+</header>
+
+<div class="contact-card">
+    <div class="contact-title">Contact Us</div>
+    <div class="info-box"><strong>Email:</strong> contact@strongtogether.org</div>
+    <div class="info-box"><strong>Phone:</strong> +1 (000)-000-0000</div>
+</div>
+
+</div>
+
+<footer class="footer">
+    Strong Together - Designed by Medede Kanaza.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Feedback | Strong Together — Share Your Experience</title>
+<style>
+/* ===== GLOBAL RESET & VARIABLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(145deg, #eef9f0 0%, #dcfce7 100%);
+    color: #14532d;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== WRAPPER LAYOUT ===== */
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px 40px;
+    flex: 1;
+    width: 100%;
+}
+
+/* ===== HEADER / NAVIGATION (enhanced, consistent with brand) ===== */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 4px solid #22c55e;
+    padding: 16px 0 14px;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.brand {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    background: linear-gradient(135deg, #14532d, #2b8c4a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.brand span {
+    color: #22c55e;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 40px;
+    color: #166534;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    background: transparent;
+    display: inline-block;
+}
+
+.main-nav a:hover {
+    background: #22c55e;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(34,197,94,0.3);
+}
+
+.main-nav a.active {
+    background: #22c55e;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== MAIN TITLE & SUBTITLE (inspired by Elite Electronics) ===== */
+.page-header {
+    text-align: center;
+    margin: 20px 0 24px 0;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #0a3b1e;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.subhead {
+    font-size: 1.1rem;
+    color: #2d6a4f;
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 500;
+    border-bottom: 2px dotted #86efac;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* ===== CARD & FORM STYLES (fresh, clean, accessible) ===== */
+.form-card {
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 32px 28px;
+    margin: 16px 0 32px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    transition: all 0.2s;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f5c2f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-title:before {
+    content: "💬";
+    font-size: 1.8rem;
+}
+
+.form-subtitle {
+    color: #2c6e49;
+    margin-bottom: 28px;
+    font-size: 1rem;
+    border-left: 4px solid #22c55e;
+    padding-left: 16px;
+    background: #f8fef5;
+    border-radius: 12px;
+    line-height: 1.4;
+}
+
+/* form elements */
+form label {
+    font-weight: 700;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    display: block;
+    color: #1c4e2d;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 20px;
+    border: 1.5px solid #e2e8f0;
+    background: #fefefe;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s;
+    color: #14532d;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    outline: none;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    background: #ffffff;
+}
+
+form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.btn {
+    background: linear-gradient(100deg, #15803d, #22c55e);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 60px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 28px;
+    transition: 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.btn:hover {
+    background: linear-gradient(100deg, #0f6e34, #1dab4c);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -8px rgba(34,197,94,0.4);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* validation / error messages */
+.error-message {
+    color: #dc2626;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.field-error {
+    border-color: #f97316 !important;
+    background-color: #fff7ed !important;
+}
+
+.success-toast {
+    background: #15803d;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 60px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeSlide 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* testimonial / quote block (keeps original spirit but refines) */
+.legacy-quote {
+    background: #f1fdf4;
+    padding: 18px 24px;
+    border-radius: 32px;
+    margin: 16px 0 0px;
+    text-align: center;
+    border: 1px solid #bef264;
+}
+
+.legacy-quote p {
+    font-size: 1.05rem;
+    color: #166534;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.legacy-quote i {
+    color: #22c55e;
+    margin-right: 8px;
+}
+
+/* footer */
+.footer {
+    text-align: center;
+    padding: 22px 16px;
+    margin-top: 40px;
+    background: #0a3a1c;
+    color: #e2f0e2;
+    font-weight: 500;
+    border-top: 4px solid #22c55e;
+    font-size: 0.9rem;
+}
+
+/* responsive touches */
+@media (max-width: 700px) {
+    .wrapper {
+        padding: 16px;
+    }
+    .site-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+    .main-nav {
+        justify-content: center;
+    }
+    .form-card {
+        padding: 24px 20px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+<header class="site-header">
+    <div class="brand">Strong <span>Together</span></div>
+    <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+        <li><a href="paycheck.html">Salary Calculator</a></li>
+        <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+    </ul>
+</header>
+
+<div class="page-header">
+    <h1>Your Voice Matters</h1>
+    
+</div>
+
+<!-- MAIN FEEDBACK SECTION: inspired by Elite Electronics but fully integrated with Strong Together style -->
+<div class="form-card">
+    <div class="form-title">Feedback</div>
+    
+    <form id="strongFeedbackForm" novalidate>
+        <!-- Full Name -->
+        <label for="fullname">Full Name <span style="color:#d97706;"></span></label>
+        <input type="text" id="fullname" name="fullname" placeholder="e.g., Maria Gonzalez" required>
+        <div id="nameError" class="error-message"></div>
+        
+        <!-- Email -->
+        <label for="emailaddr">Email Address <span style="color:#d97706;"></span></label>
+        <input type="email" id="emailaddr" name="emailaddr" placeholder="you@example.com" required>
+        <div id="emailError" class="error-message"></div>
+        
+        <!-- Type of engagement (inspired by 'Visit Type') -->
+        <label for="engagement">Type of Engagement</label>
+        <select id="engagement" name="engagement" required>
+            <option value="">-- Select an option --</option>
+            <option>Wellness Workshop</option>
+            <option>One-on-One Mentorship</option>
+            <option>Community Event</option>
+            <option>Volunteer Experience</option>
+            <option>Online Resource / Website</option>
+            <option>Other</option>
+        </select>
+        <div id="engagementError" class="error-message"></div>
+        
+        <!-- Overall Experience -->
+        <label for="ratingExp">Overall Experience <span style="color:#d97706;"></span></label>
+        <select id="ratingExp" name="ratingExp" required>
+            <option value="">Rate your experience ...</option>
+            <option>Excellent — Truly life-changing</option>
+            <option>Good — Very positive impact</option>
+            <option>Average — Satisfactory, room to grow</option>
+            <option>Fair — Below expectations</option>
+            <option>Poor — Needs improvement</option>
+        </select>
+        <div id="ratingError" class="error-message"></div>
+        
+        <!-- Detailed Feedback (core) -->
+        <label for="detailedFeedback">Your Feedback / Story <span style="color:#d97706;"></span></label>
+        <textarea id="detailedFeedback" name="detailedFeedback" placeholder="Tell us what you loved, what we can improve, or how Strong Together impacted you ..." required></textarea>
+        <div id="feedbackError" class="error-message"></div>
+        
+        <!-- Suggestions for improvement (optional but encouraged) -->
+        <label for="suggestionsBox">Suggestions for a Stronger Tomorrow</label>
+        <textarea id="suggestionsBox" name="suggestionsBox" placeholder="Ideas for new programs, better communication, or anything else ..."></textarea>
+        
+        <button type="submit" class="btn"> Submit Feedback & Stay Connected</button>
+    </form>
+    
+    <!-- Dynamic message area (success / errors) -->
+    <div id="formFeedbackMessage" style="margin-top: 18px;"></div>
+</div>
+
+</div> <!-- end wrapper -->
+
+<footer class="footer">
+     Strong Together — Designed by Medede Kanaza.
+</footer>
+
+<!-- FontAwesome for subtle icons (optional but nice) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script>
+    (function() {
+        // DOM elements
+        const form = document.getElementById('strongFeedbackForm');
+        const fullnameInput = document.getElementById('fullname');
+        const emailInput = document.getElementById('emailaddr');
+        const engagementSelect = document.getElementById('engagement');
+        const ratingSelect = document.getElementById('ratingExp');
+        const feedbackTextarea = document.getElementById('detailedFeedback');
+        const messageContainer = document.getElementById('formFeedbackMessage');
+        
+        // error spans
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const engagementError = document.getElementById('engagementError');
+        const ratingError = document.getElementById('ratingError');
+        const feedbackError = document.getElementById('feedbackError');
+        
+        // Helper: clear all field-level errors and reset styling
+        function clearFieldErrors() {
+            const errorDivs = [nameError, emailError, engagementError, ratingError, feedbackError];
+            errorDivs.forEach(err => { if (err) err.innerHTML = ''; });
+            
+            const fields = [fullnameInput, emailInput, engagementSelect, ratingSelect, feedbackTextarea];
+            fields.forEach(field => {
+                if (field) field.classList.remove('field-error');
+            });
+        }
+        
+        // show specific field error
+        function setFieldError(fieldElement, errorDiv, message) {
+            if (fieldElement) fieldElement.classList.add('field-error');
+            if (errorDiv) errorDiv.innerHTML = message ? `<i class="fas fa-exclamation-circle"></i> ${message}` : '';
+        }
+        
+        // validate single fields
+        function validateName() {
+            const name = fullnameInput.value.trim();
+            if (name === '') {
+                setFieldError(fullnameInput, nameError, 'Full name is required.');
+                return false;
+            }
+            if (name.length < 2) {
+                setFieldError(fullnameInput, nameError, 'Name must be at least 2 characters.');
+                return false;
+            }
+            fullnameInput.classList.remove('field-error');
+            nameError.innerHTML = '';
+            return true;
+        }
+        
+        function validateEmail() {
+            const email = emailInput.value.trim();
+            if (email === '') {
+                setFieldError(emailInput, emailError, 'Email address is required.');
+                return false;
+            }
+            const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                setFieldError(emailInput, emailError, 'Please enter a valid email (e.g., name@example.com).');
+                return false;
+            }
+            emailInput.classList.remove('field-error');
+            emailError.innerHTML = '';
+            return true;
+        }
+        
+        function validateEngagement() {
+            const value = engagementSelect.value;
+            if (!value || value === '') {
+                setFieldError(engagementSelect, engagementError, 'Please select your type of engagement.');
+                return false;
+            }
+            engagementSelect.classList.remove('field-error');
+            engagementError.innerHTML = '';
+            return true;
+        }
+        
+        function validateRating() {
+            const rating = ratingSelect.value;
+            if (!rating || rating === '') {
+                setFieldError(ratingSelect, ratingError, 'Please rate your overall experience.');
+                return false;
+            }
+            ratingSelect.classList.remove('field-error');
+            ratingError.innerHTML = '';
+            return true;
+        }
+        
+        function validateFeedbackMessage() {
+            const feedbackMsg = feedbackTextarea.value.trim();
+            if (feedbackMsg === '') {
+                setFieldError(feedbackTextarea, feedbackError, 'Please share your feedback or experience — it means a lot to us.');
+                return false;
+            }
+            if (feedbackMsg.length < 5) {
+                setFieldError(feedbackTextarea, feedbackError, 'Feedback must be at least 5 characters.');
+                return false;
+            }
+            feedbackTextarea.classList.remove('field-error');
+            feedbackError.innerHTML = '';
+            return true;
+        }
+        
+        // full realtime validation for submit
+        function validateAll() {
+            const isNameValid = validateName();
+            const isEmailValid = validateEmail();
+            const isEngagementValid = validateEngagement();
+            const isRatingValid = validateRating();
+            const isFeedbackValid = validateFeedbackMessage();
+            return isNameValid && isEmailValid && isEngagementValid && isRatingValid && isFeedbackValid;
+        }
+        
+        // attach live blur events for better UX
+        if (fullnameInput) fullnameInput.addEventListener('blur', validateName);
+        if (emailInput) emailInput.addEventListener('blur', validateEmail);
+        if (engagementSelect) engagementSelect.addEventListener('change', function() { validateEngagement(); });
+        if (ratingSelect) ratingSelect.addEventListener('change', function() { validateRating(); });
+        if (feedbackTextarea) feedbackTextarea.addEventListener('blur', validateFeedbackMessage);
+        
+        // handle form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            clearFieldErrors();
+            
+            if (!validateAll()) {
+                // scroll to first error
+                const firstErrorField = document.querySelector('.field-error');
+                if (firstErrorField) {
+                    firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                // show friendly summary inside message container
+                messageContainer.innerHTML = `<div style="background:#fee2e2; color:#b91c1c; padding:12px 18px; border-radius:40px; font-weight:500; border-left:5px solid #f97316;"><i class="fas fa-exclamation-triangle"></i> Please fix the highlighted fields before submitting.</div>`;
+                // auto clear after 5 sec
+                setTimeout(() => {
+                    if (messageContainer.innerHTML.includes('fix the highlighted fields')) messageContainer.innerHTML = '';
+                }, 4500);
+                return;
+            }
+            
+            // simulate successful submission (inspired by Elite Electronics style)
+            // gather data for console (no actual server side)
+            const formData = {
+                fullName: fullnameInput.value.trim(),
+                email: emailInput.value.trim(),
+                engagement: engagementSelect.value,
+                overallExperience: ratingSelect.value,
+                feedback: feedbackTextarea.value.trim(),
+                suggestions: document.getElementById('suggestionsBox')?.value.trim() || ''
+            };
+            console.log('Feedback submitted (Strong Together):', formData);
+            
+            // success UI with clearing optional but we reset form? we show success message, but keep it or offer reset? 
+            // better to keep form filled? but we can show success and optionally reset
+            messageContainer.innerHTML = `<div class="success-toast"><i class="fa-regular fa-circle-check"></i> Thank you, ${formData.fullName.split(' ')[0] || 'friend'}! Your voice makes us stronger together. We'll review your feedback within 48h. </div>`;
+            
+            // optionally reset the whole form after 2 seconds? but maybe nicer to clear only if user clicks new? we do NOT reset automatically to avoid losing suggestions; but I'll keep form visible and show success, but we can also clear errors and optionally reset after user sees message? Better to not reset abruptly but give clear success. 
+            // To respect typical UX, we can disable submit button briefly to avoid double submit, but we also enable after.
+            const submitBtn = form.querySelector('.btn');
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            // scroll success into view
+            messageContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // after 4 seconds, re-enable button but keep message. We also optionally clear success if user interacts? Not needed
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                // We can remove the success message after 6 seconds or let user see. 
+                // But to avoid clutter, we let success fade after 7 sec but not remove completely, but optional.
+                setTimeout(() => {
+                    if (messageContainer.innerHTML.includes('Thank you')) {
+                        // keep but add small disappearing? we keep light fade? but better to keep visible for session
+                        // but for better UX we keep until new submission
+                    }
+                }, 5000);
+            }, 3200);
+            
+            // Optionally reset only a few fields? We rather keep text for user reference, but reset the form after success? 
+            // I'd prefer not to erase so the user can see what they wrote, but we can optionally clear only if they request? 
+            // But we also give an extra note: we can create a silent reset after 2 seconds? no.
+            // Provide a secondary "clear form" action? we add little inline? but not necessary - we respect user review.
+            // But to make it consistent with 'Elite Electronics' idea, we display success message without clearing, so they can copy.
+            // However we should remove the 'field-error' classes if any.
+            clearFieldErrors();
+            
+            // If user wants to submit again, they can, but we might want to reset the form completely after success? 
+            // Not mandatory but we can add a small "New Feedback" link? I'll attach a subtle reset handler? no need.
+            // But to improve ux we add a small "send another response" after success? can be overkill.
+        });
+        
+        // Additional enhancement: realtime validation for better live feel
+        const allInputs = [fullnameInput, emailInput, feedbackTextarea];
+        allInputs.forEach(inp => {
+            if (inp) inp.addEventListener('input', function() {
+                if (inp.id === 'fullname') validateName();
+                if (inp.id === 'emailaddr') validateEmail();
+                if (inp.id === 'detailedFeedback') validateFeedbackMessage();
+                // clear global message on typing
+                if (messageContainer.innerHTML.includes('fix the highlighted fields') || messageContainer.innerHTML.includes('Thank you')) {
+                    // only remove error messages, not success immediately? but we avoid clearing success aggressively
+                    if (messageContainer.innerHTML.includes('fix the highlighted')) {
+                        messageContainer.innerHTML = '';
+                    }
+                }
+            });
+        });
+        
+        // select listeners for realtime
+        if (engagementSelect) engagementSelect.addEventListener('change', function() { validateEngagement(); if(messageContainer.innerHTML.includes('fix the highlighted')) messageContainer.innerHTML = ''; });
+        if (ratingSelect) ratingSelect.addEventListener('change', function() { validateRating(); if(messageContainer.innerHTML.includes('fix the highlighted')) messageContainer.innerHTML = ''; });
+        
+        // initial placeholder clean
+        clearFieldErrors();
+    })();
+</script>
+</body>
+</html>

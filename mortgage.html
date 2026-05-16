@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mortgage Calculator | Strong Together Financial Tools</title>
+    <style>
+        /* ===== GLOBAL STYLES (Matching Strong Together) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, 'Segoe UI', system-ui, sans-serif;
+            background: #f0fdf4;
+            color: #14532d;
+            line-height: 1.5;
+        }
+
+        /* ===== WRAPPER ===== */
+        .wrapper {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* ===== HEADER / NAVIGATION (Matching Strong Together) ===== */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #22c55e;
+            padding: 15px 0;
+            background: transparent;
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .brand span {
+            color: #22c55e;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-nav li {
+            list-style: none;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            color: #166534;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            background: #22c55e;
+            color: white;
+        }
+
+        .main-nav a.active {
+            background: #22c55e;
+            color: white;
+        }
+
+        /* ===== PAGE CONTENT ===== */
+        .page-content {
+            padding: 2rem 0;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #14532d;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-underline {
+            width: 70px;
+            height: 4px;
+            background: #22c55e;
+            margin: 0.6rem 0 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .intro-text {
+            color: #166534;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* ===== MORTGAGE CALCULATOR CARD ===== */
+        .mortgage-container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #bbf7d0;
+            overflow: hidden;
+            max-width: 720px;
+            margin-top: 1rem;
+        }
+
+        .calc-header-custom {
+            background: #f0fdf4;
+            padding: 1.4rem 2rem;
+            border-bottom: 2px solid #22c55e;
+        }
+
+        .calc-header-custom h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #14532d;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-container-calc {
+            padding: 1.8rem 2rem 2rem 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            color: #14532d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .prefix-symbol {
+            position: absolute;
+            left: 16px;
+            font-weight: bold;
+            color: #22c55e;
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        .input-wrapper input,
+        .plain-input input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 2.2rem;
+            font-size: 1rem;
+            border: 2px solid #bbf7d0;
+            border-radius: 8px;
+            background: #ffffff;
+            transition: 0.2s;
+            font-weight: normal;
+            color: #14532d;
+        }
+
+        .plain-input input {
+            padding-left: 1rem;
+        }
+
+        .input-wrapper input:focus,
+        .plain-input input:focus {
+            outline: none;
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+        }
+
+        small.hint {
+            font-size: 0.7rem;
+            color: #166534;
+            margin-top: 0.2rem;
+        }
+
+        /* Result Card */
+        .result-card {
+            background: #f0fdf4;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0 1.8rem 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            border-left: 6px solid #22c55e;
+        }
+
+        .result-label {
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #14532d;
+        }
+
+        .payment-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #22c55e;
+            background: white;
+            padding: 0.2rem 1rem;
+            border-radius: 25px;
+            word-break: break-word;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            flex: 2;
+            background: #22c55e;
+            border: none;
+            padding: 0.9rem 0;
+            font-weight: bold;
+            font-size: 1rem;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-primary:hover {
+            background: #16a34a;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            flex: 1;
+            background: #eef2f7;
+            border: 1px solid #bbf7d0;
+            padding: 0.9rem 0;
+            font-weight: bold;
+            color: #14532d;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .disclaimer-note {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #166534;
+            margin-top: 1.8rem;
+            border-top: 1px solid #bbf7d0;
+            padding-top: 1.2rem;
+        }
+
+        /* ===== FOOTER (Matching Strong Together) ===== */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background: #14532d;
+            color: white;
+            font-weight: bold;
+            border-top: 3px solid #22c55e;
+        }
+
+        @media (max-width: 680px) {
+            .page-content {
+                padding: 1rem 0;
+            }
+            .payment-value {
+                font-size: 1.4rem;
+            }
+            .main-nav li a {
+                padding: 0.4rem 0.9rem;
+                font-size: 0.85rem;
+            }
+            .brand {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- HEADER / NAVIGATION - Matching Strong Together -->
+    <header class="site-header">
+        <div class="brand">Strong <span>Together</span></div>
+        <ul class="main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="paycheck.html">Salary Calculator</a></li>
+            <li><a href="mortgage.html" class="active">Mortgage Calculator</a></li>    
+        </ul>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="page-content">
+        <h1 class="page-title">Mortgage Calculator</h1>
+        <div class="title-underline"></div>
+        
+        <!-- MORTGAGE CALCULATOR - Fully Functional -->
+        <div class="mortgage-container">
+            <div class="calc-header-custom">
+                <h2> Home Loan Analyzer</h2>
+            </div>
+            <div class="form-container-calc">
+                <!-- Form name="Form1" is required for the original mortCalc() function -->
+                <form name="Form1" id="strongMortgageForm" onsubmit="return false;">
+                    <div class="input-group">
+                        <label> Loan Amount (USD)</label>
+                        <div class="input-wrapper">
+                            <span class="prefix-symbol"></span>
+                            <input type="text" name="Amount" id="loanAmount" placeholder>
+                        </div>
+                        
+                    </div>
+
+                    <div class="input-group">
+                        <label> Annual Interest Rate (%)</label>
+                        <div class="input-wrapper plain-input">
+                            <input type="text" name="Rate" id="interestRate" placeholder>
+                        </div>
+                        
+                    </div>
+
+                    <div class="input-group">
+                        <label> Loan Term (years)</label>
+                        <div class="input-wrapper plain-input">
+                            <input type="text" name="Years" id="loanYears" placeholder>
+                        </div>
+                        
+                    </div>
+
+                    <!-- Result display block -->
+                    <div class="result-card">
+                        <span class="result-label">Monthly Payment</span>
+                        <span class="payment-value" id="monthlyPaymentDisplay">$0.00</span>
+                    </div>
+
+                    <div class="button-row">
+                        <button type="button" class="btn-primary" id="calculateBtn">Calculate Mortgage</button>
+                        <button type="button" class="btn-secondary" id="resetBtn">Clear Fields</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER - Matching Strong Together -->
+    <footer class="footer">
+        Strong Together - Designed by Medede Kanaza.
+    </footer>
+</div>
+
+<script>
+    // --------------------------------------------------------------
+    // MORTGAGE CALCULATION FUNCTIONS - Fully Functional
+    // --------------------------------------------------------------
+    
+    // 1) Monthly payment calculation
+    function monthly(price, interest, numYears) {
+        var IntRate = interest / 1200;          // monthly rate
+        var Pmts = numYears * 12;
+        var pay = price;
+        // Edge case: zero percent interest
+        if (IntRate === 0) {
+            return pay / Pmts;
+        }
+        var denominator = 1 - (1 / Math.pow(1 + IntRate, Pmts));
+        return pay * (IntRate / denominator);
+    }
+    
+    // 2) Format as US currency with commas and two decimals
+    function punctuation(valuein) {
+        var formatStr = "";
+        var Odollars = "";
+        var decpos = valuein.indexOf(".");
+        if (decpos == -1)
+            decpos = valuein.length;
+        var dollars = valuein.substring(0, decpos);
+        var Fdollars = dollars.length;
+        if (Fdollars > 3) {
+            while (Fdollars > 0) {
+                var Tdollars = dollars.substring(Fdollars - 3, Fdollars);
+                if (Tdollars.length == 3) {
+                    Odollars = "," + Tdollars + Odollars;
+                    Fdollars = Fdollars - 3;
+                } else {
+                    Odollars = Tdollars + Odollars;
+                    Fdollars = 0;
+                }
+            }
+            if (Odollars.substring(0, 1) == ",")
+                dollars = Odollars.substring(1, Odollars.length);
+            else
+                dollars = Odollars;
+        }
+        var cents = valuein.substring(decpos + 1, decpos + 3);
+        if (cents == "")
+            cents = "00";
+        var formatStr = "$" + dollars + "." + cents;
+        return formatStr;
+    }
+    
+    // 3) Main mortgage calculation function
+    function mortCalc(myform) {
+        // Get values from Form1
+        var price = document.Form1.Amount.value;
+        price = parseFloat(price);
+        if (isNaN(price) || price <= 0) {
+            alert("Please enter a valid loan amount (positive number).");
+            return false;
+        }
+        
+        var interest = document.Form1.Rate.value;
+        interest = parseFloat(interest);
+        if (isNaN(interest) || interest < 0) {
+            alert("Please enter a valid interest rate (numbers only).");
+            return false;
+        }
+        
+        var numYears = document.Form1.Years.value;
+        numYears = parseInt(numYears, 10);
+        if (isNaN(numYears) || numYears <= 0) {
+            alert("Please enter a valid positive number of years.");
+            return false;
+        }
+        
+        // Calculate raw monthly payment
+        var rawPayment = monthly(price, interest, numYears);
+        
+        // Format using punctuation function
+        var formattedPayment = punctuation(rawPayment.toString());
+        
+        // Create hidden Payment field if it doesn't exist
+        if (!document.Form1.Payment) {
+            var hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = "Payment";
+            document.Form1.appendChild(hiddenInput);
+        }
+        document.Form1.Payment.value = formattedPayment;
+        
+        // Update visual display
+        var displaySpan = document.getElementById("monthlyPaymentDisplay");
+        if (displaySpan) {
+            displaySpan.innerText = formattedPayment;
+        }
+        
+        return formattedPayment;
+    }
+    
+    // Reset calculator
+    function resetMortgageCalculator() {
+        // Clear form fields
+        if (document.Form1) {
+            if (document.Form1.Amount) document.Form1.Amount.value = "";
+            if (document.Form1.Rate) document.Form1.Rate.value = "";
+            if (document.Form1.Years) document.Form1.Years.value = "";
+            if (document.Form1.Payment) document.Form1.Payment.value = "";
+        }
+        
+        // Clear modern input fields
+        const amountField = document.getElementById("loanAmount");
+        const rateField = document.getElementById("interestRate");
+        const yearsField = document.getElementById("loanYears");
+        
+        if (amountField) amountField.value = "";
+        if (rateField) rateField.value = "";
+        if (yearsField) yearsField.value = "";
+        
+        // Reset display
+        const displaySpan = document.getElementById("monthlyPaymentDisplay");
+        if (displaySpan) displaySpan.innerText = "$0.00";
+    }
+    
+    // Sync modern inputs to legacy Form1
+    function syncModernToLegacy() {
+        if (!document.Form1) return;
+        const modernAmount = document.getElementById("loanAmount");
+        const modernRate = document.getElementById("interestRate");
+        const modernYears = document.getElementById("loanYears");
+        
+        if (modernAmount && document.Form1.Amount) 
+            document.Form1.Amount.value = modernAmount.value;
+        if (modernRate && document.Form1.Rate) 
+            document.Form1.Rate.value = modernRate.value;
+        if (modernYears && document.Form1.Years) 
+            document.Form1.Years.value = modernYears.value;
+    }
+    
+    // Ensure Payment field exists
+    function ensurePaymentField() {
+        if (document.Form1 && !document.Form1.Payment) {
+            let hiddenPayment = document.createElement("input");
+            hiddenPayment.type = "hidden";
+            hiddenPayment.name = "Payment";
+            document.Form1.appendChild(hiddenPayment);
+        }
+    }
+    
+    // Initialize on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ensure form exists
+        ensurePaymentField();
+        
+        // Set default example values
+        const defaultAmount = "275000";
+        const defaultRate = "5.25";
+        const defaultYears = "30";
+        
+        let amountInput = document.getElementById("loanAmount");
+        let rateInput = document.getElementById("interestRate");
+        let yearsInput = document.getElementById("loanYears");
+        
+        if (amountInput && amountInput.value === "") amountInput.value = defaultAmount;
+        if (rateInput && rateInput.value === "") rateInput.value = defaultRate;
+        if (yearsInput && yearsInput.value === "") yearsInput.value = defaultYears;
+        
+        // Sync to legacy form
+        if (document.Form1) {
+            if (document.Form1.Amount) 
+                document.Form1.Amount.value = amountInput ? amountInput.value : defaultAmount;
+            if (document.Form1.Rate) 
+                document.Form1.Rate.value = rateInput ? rateInput.value : defaultRate;
+            if (document.Form1.Years) 
+                document.Form1.Years.value = yearsInput ? yearsInput.value : defaultYears;
+        }
+        
+        // Run initial calculation
+        mortCalc();
+        
+        // Attach event listeners
+        const calcBtn = document.getElementById("calculateBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        
+        if (calcBtn) {
+            calcBtn.addEventListener("click", function(e) {
+                syncModernToLegacy();
+                mortCalc();
+            });
+        }
+        
+        if (resetBtn) {
+            resetBtn.addEventListener("click", function(e) {
+                resetMortgageCalculator();
+            });
+        }
+        
+        // Real-time sync when user types
+        if (amountInput) {
+            amountInput.addEventListener("input", function() {
+                if (document.Form1 && document.Form1.Amount) 
+                    document.Form1.Amount.value = amountInput.value;
+            });
+        }
+        if (rateInput) {
+            rateInput.addEventListener("input", function() {
+                if (document.Form1 && document.Form1.Rate) 
+                    document.Form1.Rate.value = rateInput.value;
+            });
+        }
+        if (yearsInput) {
+            yearsInput.addEventListener("input", function() {
+                if (document.Form1 && document.Form1.Years) 
+                    document.Form1.Years.value = yearsInput.value;
+            });
+        }
+    });
+    
+    // Expose functions globally
+    window.monthly = monthly;
+    window.punctuation = punctuation;
+    window.mortCalc = mortCalc;
+</script>
+
+</body>
+</html>

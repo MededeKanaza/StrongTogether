@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Strong Together</title>
+
+<style>
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eafff2, #dcfce7);
+    color: #14532d;
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ===== HEADER / NAVIGATION ===== */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #22c55e;
+    padding: 15px 0;
+    background: transparent;
+}
+
+.brand {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.brand span {
+    color: #22c55e;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: #166534;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+    background: #22c55e;
+    color: white;
+}
+
+.main-nav a.active {
+    background: #22c55e;
+    color: white;
+}
+
+/* ===== CONTENT ===== */
+h1 {
+    font-size: 40px;
+    margin: 25px 0;
+    color: #0f7a3a;
+}
+
+.services-box {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card {
+    background: #f0fdf4;
+    border-left: 6px solid #22c55e;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    color: #064e3b;
+}
+
+.card p {
+    margin: 0;
+    color: #14532d;
+}
+
+.card ul, .card ol {
+    margin: 10px 0 0 20px;
+}
+
+.card li {
+    margin: 5px 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    background: #14532d;
+    color: white;
+    font-weight: bold;
+    border-top: 3px solid #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<header class="site-header">
+    <div class="brand">Strong <span>Together</span></div>
+    <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="paycheck.html">Salary Calculator</a></li>
+		<li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+    </ul>
+</header>
+
+<h1>Our Services</h1>
+
+<div class="services-box">
+    <div class="card">
+        <h3>Financial Medical Assistance</h3>
+        <p>We help cover medical treatments, surgeries, hospital bills, and medication costs for patients in need.</p>
+    </div>
+
+    <div class="card">
+        <h3>Fundraising Events</h3>
+        <p>We organize events to support patients:</p>
+        <ul>
+            <li>Charity concerts with artists</li>
+            <li>Comedy shows</li>
+            <li>Live-stream donation campaigns</li>
+            <li>Community fundraising parties</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>How to Request Help</h3>
+        <ol>
+            <li>Complete assistance application</li>
+            <li>Submit medical and financial documents</li>
+            <li>Review by support team</li>
+            <li>Final funding decision</li>
+        </ol>
+    </div>
+
+    <div class="card">
+
+        <h3>How You Can Help</h3>
+        <p>Donors, volunteers, and partners are welcome to support our mission through donations or event participation.</p>
+    </div>
+</div>
+
+</div>
+
+<footer class="footer">
+    Strong Together - Designed by Medede Kanaza.
+</footer>
+
+</body>
+</html>
